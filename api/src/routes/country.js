@@ -1,9 +1,16 @@
 const router = require('express').Router();
 const { Country, Activity } = require("../db")
 
-router.get('/', async function(_req, res) {
+router.get('/', async function( req, res) {
+    const { name } = req.query;
     const countries = await Country.findAll();
+    if (name){
+        const filterName = await countries.filter(e =>
+            e.name.toLowerCase().includes(name.toLowerCase()))
+            res.send(filterName)
+    } else {
     res.json(countries);
+    }
 });
 
 router.get('/:id', async function(req, res) {

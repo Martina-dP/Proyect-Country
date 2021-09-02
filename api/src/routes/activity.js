@@ -15,19 +15,21 @@ router.post('/activity', async function(req, res) {
         duration,
         season });
 
-    try {
-        const country = await Country.findAll({
+    try { 
+        const countries = await Country.findAll({
             where : {
-                id : id
+                id
             }
         })
-        await activityCreated.addCountries(country);
+        await activityCreated.addCountries(countries);
         return res.send("Actividad crada")
     } catch (err) {
         res.send("Error")
     }
  });
 
-router.delete()
+router.delete('/activity', async function(req, res) {
+
+});
 
 module.exports = router;

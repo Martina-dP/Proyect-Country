@@ -4,6 +4,8 @@ module.exports = (sequelize) => {
     sequelize.define('activity', {
     id : {
       type : DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
       allowNull : false
     },
     name : {
