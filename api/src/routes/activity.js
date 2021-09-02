@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Country, Activity } = require("../db")
 
-router.post('/activity', async function(req, res) {
+router.post('/', async function(req, res) {
     const {
         id,
         name,
@@ -18,18 +18,28 @@ router.post('/activity', async function(req, res) {
     try { 
         const countries = await Country.findAll({
             where : {
-                id
+                id : id
             }
         })
         await activityCreated.addCountries(countries);
-        return res.send("Actividad crada")
+        res.send("Actividad crada")
     } catch (err) {
         res.send("Error")
     }
  });
 
-router.delete('/activity', async function(req, res) {
-
+router.delete('/:id', async function(req, res) {
+    const { id } = req.params
+    try {
+         await Activity.destroy({
+            where:{
+                id:id
+            }
+        })
+        return res.send("Actividad eliminada")
+    } catch (error) {
+        res.send("No se pudo eliminar")
+    }
 });
 
 module.exports = router;

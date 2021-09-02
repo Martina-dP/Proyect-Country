@@ -15,10 +15,14 @@ router.get('/', async function( req, res) {
 
 router.get('/:id', async function(req, res) {
     const { id } = req.params;
+    if (id.length === 3){
     const country = await Country.findByPk(id, {
         include: Activity
         })
         res.json(country);
+    } else {
+        return res.send("No existe el pais")
+    }
 });
 
 module.exports = router; 
