@@ -14,7 +14,7 @@ export default function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setTimeout(push("/home"), 1000);
-    setTimeout(dispatch(getDogsByQuery(query)), 2000);
+    setTimeout(dispatch(getCountriesByQuery(query)), 2000);
     setQuery((query) => (query = ""));
   };
 
