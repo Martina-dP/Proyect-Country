@@ -1,0 +1,9 @@
+.principal{
+    height: 100vh; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url("../../img/7.jpg");
+    background-size: cover; 
+}
