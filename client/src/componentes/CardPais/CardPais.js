@@ -5,7 +5,7 @@ import style from "./CardPais.module.css"
 function CardPais({id,name,continent,flagsImg}){
     return(
     <div className = {style.container}>
-         <Link to={"/countries/"+ id}>
+         <Link to={"/countries/" + id}>
           <img className = {style.img} src = {flagsImg} alt="img not found" />
         </Link>
             <h2>{name}</h2>

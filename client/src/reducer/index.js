@@ -1,4 +1,8 @@
-import { GET_COUNTRIES } from "../actions/index"
+import { 
+    GET_COUNTRIES,
+    GET_COUNTRIES_BY_QUERY,
+
+} from "../actions/index"
 
 const initialState = {
     countries : [],
@@ -8,6 +12,11 @@ const initialState = {
 function rootReducer (state = initialState, {type, payload}) {
     switch(type) {
         case GET_COUNTRIES :
+            return {
+                ...state,
+                countries : payload
+            }
+        case GET_COUNTRIES_BY_QUERY :
             return {
                 ...state,
                 countries : payload

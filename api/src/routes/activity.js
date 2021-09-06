@@ -22,7 +22,7 @@ router.post('/', async function(req, res) {
             }
         })
         await activityCreated.addCountries(countries);
-        res.send("Actividad crada")
+        res.send("Actividad creada")
     } catch (err) {
         res.send("Error")
     }

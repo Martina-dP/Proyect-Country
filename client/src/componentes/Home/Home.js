@@ -4,10 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../../actions/index"
 import CardPais from '../CardPais/CardPais';
 import { Link } from "react-router-dom";
+import Paginado from '../Paginado/Paginado';
 
 export function Home() {
   
     const allCountries = useSelector ((state) => state.countries) //es lo mismo que un mapStateToProps, me trae todo lo que esta en el stado de countries
+    const [currentPage, setCurrentPage] = useState(1); //currentPage = pagina actual
+    const [countriesPerPage, setCountriesPerPage] = useState(10) //countriesPerPAge = paises por pagina, el 10 es de la cantidad de paises quiero que se muestren
+    const indexOfLastCountries = currentPage * countriesPerPage
+    const indexOfFirstCountries = indexOfLastCountries - countriesPerPage
+    const currentCountries = allCountries.slice(indexOfFirstCountries, indexOfLastCountries) //slice = toma una parte del arreglo depndiedo lo que le pases por parametro
+
+const paginado = (pageNum) => {
+    setCurrentPage(pageNum)
+}
 
 
     const dispatch = useDispatch()
@@ -16,6 +26,11 @@ export function Home() {
         dispatch(getCountries()); //equivale a hacer mapDispatchToProps
     },[dispatch]) //el array es para pasarle cuano queremos que suceda
 
+    // function handleClick(e) {
+    //     e.preventDefault();
+    //     dispatch(getCountries());
+    // }
+
     return(
         <div>
             <div>
@@ -23,6 +38,12 @@ export function Home() {
             </div>
             <div>
                 <Link to="/activity"> Create Activity</Link>
+            </div>
+            <div>
+            <input  type="text"  placeholder="Search Country..." />
+            <button type="submit">
+                Buscar
+            </button>
             </div>
             <br/>
             <div>
@@ -46,28 +67,25 @@ export function Home() {
                     <option value="popu"> Order by Population</option>
                 </select>
             </div>
-
-        <>{ allCountries.length > 0 ?
-            
-            <div>
-            {allCountries.map((country) => {
-                console.log(allCountries)
-                return (
-                    <CardPais
-                    key = {country.id}
-                    name = {country.name}
-                    id = {country.id}
-                    flagsImg = {country.flagsImg}
-                    continent = {country.continent}
-                    />
-                );
-            })}
-            </div>
-        :
-        <h1> Loading... </h1>
-         }    
-         </>
-         </div>
+        <Paginado
+        countriesPerPage = {countriesPerPage}
+        allCountries = {allCountries.length}
+        paginado = {paginado}
+        />
+        {currentCountries?.map((country) => {
+         return (
+            <CardPais
+            key = {country.id}
+            name = {country.name}
+            id = {country.id}
+            flagsImg = {country.flagsImg}
+            continent = {country.continent}
+            />
+        );
+         }
+        ) }
+        </div>
+       
          )
     
 };
