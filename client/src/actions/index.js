@@ -7,7 +7,7 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const GET_ACTIVITY = "GET_ACTIVITY";
 export const ORDER_AFABETICAMENTE = "ORDER_AFABETICAMENTE";
-export const ORDER_POBLACION  = "ORDER_POBLACION ";
+export const ORDER_POBLACION  = "ORDER_POBLACION";
 
 
 export function getCountries () {
@@ -60,6 +60,7 @@ export function filterContinente(payload) {
 };
 
 export function orderPoblacion(payload) {
+    console.log(payload)
     return {
         type: "ORDER_POBLACION",
         payload

@@ -15,7 +15,7 @@ import { getCountries,
 export function Home() {
   
     const allCountries = useSelector ((state) => state.countries) //es lo mismo que un mapStateToProps, me trae todo lo que esta en el stado de countries
-    const allActivities = useSelector ((state) => state.activities)
+    // const allActivities = useSelector ((state) => state.activities)
     const [currentPage, setCurrentPage] = useState(1); //currentPage = pagina actual
     const [order, setOrder] = useState("");
     const [countriesPerPage, setCountriesPerPage] = useState(10) //countriesPerPAge = paises por pagina, el 10 es de la cantidad de paises quiero que se muestren

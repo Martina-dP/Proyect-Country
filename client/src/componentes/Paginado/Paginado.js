@@ -11,7 +11,7 @@ function Paginado ({countriesPerPage, allCountries, paginado}) { //declaro pagin
             <ul>
                 {pageNum &&
                     pageNum.map(num => (
-                        <a onClick = {() => paginado(num)}> {num} </a>
+                        <a onClick = {() => paginado(num)}  key = {num} > {num} </a>
                     ))
                 }
             </ul>
@@ -20,25 +20,3 @@ function Paginado ({countriesPerPage, allCountries, paginado}) { //declaro pagin
 }
 
 export default Paginado;
-
- {/* <>
-        {allCountries.length > 0 ?
-            <div>
-            {allCountries.map((country) => {
-                console.log(allCountries)
-                return (
-                    <CardPais
-                    key = {country.id}
-                    name = {country.name}
-                    id = {country.id}
-                    flagsImg = {country.flagsImg}
-                    continent = {country.continent}
-                    />
-                );
-            })}
-            </div>
-        :
-        <h1> Loading... </h1>
-         }    
-         </>
-         </div> */}
