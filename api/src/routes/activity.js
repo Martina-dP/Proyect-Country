@@ -1,6 +1,13 @@
 const router = require('express').Router();
 const { Country, Activity } = require("../db")
 
+router.get("/", async (_req, res) => {
+    const activity = await Activity.findAll({
+      include: Country,
+    });
+    res.json(activity);
+  });
+
 router.post('/', async function(req, res) {
     const {
         id,
