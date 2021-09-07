@@ -1,17 +1,23 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, filterContinente, filterActividad } from "../../actions/index"
 import CardPais from '../CardPais/CardPais';
 import { Link } from "react-router-dom";
 import Paginado from '../Paginado/Paginado';
-import style from "./Home.module.css"
+import style from "./Home.module.css";
+import Nav from "../Nav/Nav";
+import { getCountries, 
+        filterContinente, 
+        filterActividad,
+        orderAlfabeticamente,
+        orderPoblacion, } from "../../actions/index"
 
 export function Home() {
   
     const allCountries = useSelector ((state) => state.countries) //es lo mismo que un mapStateToProps, me trae todo lo que esta en el stado de countries
     const allActivities = useSelector ((state) => state.activities)
     const [currentPage, setCurrentPage] = useState(1); //currentPage = pagina actual
+    const [order, setOrder] = useState("");
     const [countriesPerPage, setCountriesPerPage] = useState(10) //countriesPerPAge = paises por pagina, el 10 es de la cantidad de paises quiero que se muestren
     const indexOfLastCountries = currentPage * countriesPerPage
     const indexOfFirstCountries = indexOfLastCountries - countriesPerPage
@@ -36,19 +42,27 @@ const paginado = (pageNum) => {
         dispatch(filterActividad(e.target.value))
     }
 
+    function handleOrderAlf(e) {
+        e.preventDefault();
+        dispatch(orderAlfabeticamente(e.target.value))
+        setCurrentPage(1);
+        setOrder(`Ordenado ${e.target.value}`)
+    }
+
+    function handleOrderPopulation(e) {
+        e.preventDefault();
+        dispatch(orderPoblacion(e.target.value))
+        setCurrentPage(1);
+        setOrder(`Ordenado ${e.target.value}`)
+    }
+
+
     return(
-        <div>
-            <div>
-            <h1> Your adventure</h1>
-            </div>
+        <div className = {style.total}>
+            < Nav />
+            <br/>
             <div>
                 <Link to="/activity"> Create Activity</Link>
-            </div>
-            <div>
-            <input  type="text"  placeholder="Search Country..." />
-            <button type="submit">
-                Buscar
-            </button>
             </div>
             <br/>
             <div>
@@ -67,10 +81,11 @@ const paginado = (pageNum) => {
                     <option value="Ski"> Ski </option>
                     <option value="Visit Museums"> Visit Museums </option>
                 </select>
-                <select>
-                    <option value="popu"> Order by Population</option>
+                <select onChange = {e => handleOrderPopulation(e)} > 
+                    <option value="mayorP"> Order by Higher Population </option>
+                    <option value="menorP"> Order by Smaller Population </option>
                 </select>
-                <select>
+                <select onChange = {e => handleOrderAlf(e)} >
                     <option value="alf"> Order by A - Z</option>
                     <option value="notAlf"> Order by Z - A</option>
                 </select>

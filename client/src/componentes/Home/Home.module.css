@@ -1,3 +1,9 @@
+.total {
+  background-image: url("../../img/carteles-paises.jpg");
+  background-repeat: no-repeat;
+  background-color: #F6D167;
+}
+
 .container {
     display: flex;
     flex-flow: wrap;

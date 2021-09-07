@@ -6,8 +6,8 @@ export const GET_COUNTRIES_BY_QUERY = "GET_COUNTRIES_BY_QUERY";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const GET_ACTIVITY = "GET_ACTIVITY";
-// export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
-// export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+export const ORDER_AFABETICAMENTE = "ORDER_AFABETICAMENTE";
+export const ORDER_POBLACION  = "ORDER_POBLACION ";
 
 
 export function getCountries () {
@@ -42,15 +42,15 @@ export function getCountriesByQuery(query) {
     }
 };
 
-export function getDetail(id) {
-    return async function (dispatch) {
-        var json = await axios.get(`http://localhost:3001/countries/${id}`)
-          return dispatch({
-            type : "GET_COUNTRIES_BY_Id",
-            payload : json.data
-            })
-        }
-};
+// export function getDetail(id) {
+//     return async function (dispatch) {
+//         var json = await axios.get(`http://localhost:3001/countries/${id}`)
+//           return dispatch({
+//             type : "GET_COUNTRIES_BY_Id",
+//             payload : json.data
+//             })
+//         }
+// };
 
 export function filterContinente(payload) {
     return {
@@ -59,12 +59,18 @@ export function filterContinente(payload) {
         } 
 };
 
-export function orderPoblacion() {
-    
+export function orderPoblacion(payload) {
+    return {
+        type: "ORDER_POBLACION",
+        payload
+        } 
 };
 
-export function orderAlfabeticamente() {
-    
+export function orderAlfabeticamente(payload) {
+    return {
+        type: "ORDER_AFABETICAMENTE",
+        payload
+        } 
 };
 
 export function filterActividad(payload) {
