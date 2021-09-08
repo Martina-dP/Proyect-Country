@@ -3,7 +3,9 @@ const { Country, Activity } = require("../db")
 
 router.get('/', async function( req, res) {
     const { name } = req.query;
-    const countries = await Country.findAll();
+    const countries = await Country.findAll({
+        include: Activity
+        });
     if (name){
         const filterName = await countries.filter(e =>
             e.name.toLowerCase().includes(name.toLowerCase()))

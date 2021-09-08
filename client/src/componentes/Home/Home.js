@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react'; */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardPais from '../CardPais/CardPais';
@@ -6,18 +6,21 @@ import { Link } from "react-router-dom";
 import Paginado from '../Paginado/Paginado';
 import style from "./Home.module.css";
 import Nav from "../Nav/Nav";
+import Search from "../Search/Search";
 import { getCountries, 
         filterContinente, 
         filterActividad,
         orderAlfabeticamente,
-        orderPoblacion, } from "../../actions/index"
+        orderPoblacion,
+        getActivity,  } from "../../actions/index"
 
 export function Home() {
   
     const allCountries = useSelector ((state) => state.countries) //es lo mismo que un mapStateToProps, me trae todo lo que esta en el stado de countries
-    // const allActivities = useSelector ((state) => state.activities)
+    const allActivities = useSelector ((state) => state.activities)
     const [currentPage, setCurrentPage] = useState(1); //currentPage = pagina actual
     const [order, setOrder] = useState("");
+    const [activity, setActivity] = useState(null);
     const [countriesPerPage, setCountriesPerPage] = useState(10) //countriesPerPAge = paises por pagina, el 10 es de la cantidad de paises quiero que se muestren
     const indexOfLastCountries = currentPage * countriesPerPage
     const indexOfFirstCountries = indexOfLastCountries - countriesPerPage
@@ -29,17 +32,39 @@ const paginado = (pageNum) => {
 
     const dispatch = useDispatch()
 
+    useEffect(() =>{  
+        dispatch(getCountries());
+    },[dispatch]) 
+
     useEffect(() =>{  //nos traemos los paises del estado al montarlo 
-        dispatch(getCountries()); //equivale a hacer mapDispatchToProps
+        dispatch(getCountries());
+        dispatch(getActivity()) //equivale a hacer mapDispatchToProps
     },[dispatch]) //el array es para pasarle cuano queremos que suceda
 
+
+    // useEffect(()=>{
+    //     dispatch(getActivity(activity));
+    // }, [activity, dispatch])
+
+    // function handleActivity(e){
+    //     e.preventDefault();
+    //     let activity = e.target.value;
+    //     setActivity(activity)
+    // }
 
     function handleFilterContinent(e) {
         dispatch(filterContinente(e.target.value))
     }
 
     function handleFilterActivity(e) {
-        dispatch(filterActividad(e.target.value))
+        if (e.target.value === "All"){
+            dispatch(getCountries());
+            setCurrentPage(1); 
+        } else {
+            dispatch(filterActividad(e.target.value));
+            setActivity(e.target.value);
+            setCurrentPage(1)
+        }
     }
 
     function handleOrderAlf(e) {
@@ -61,6 +86,8 @@ const paginado = (pageNum) => {
         <div className = {style.total}>
             < Nav />
             <br/>
+            < Search />
+            <br />
             <div>
                 <Link to="/activity"> Create Activity</Link>
             </div>
@@ -75,11 +102,15 @@ const paginado = (pageNum) => {
                     <option value="Africa"> Africa </option>
                     <option value="Polar"> Polar </option>
                 </select>
-                <select  onChange = {e => handleFilterActivity(e)} >
-                    <option value="All"> All Activities</option>
+                <select onChange = {(e) => handleFilterActivity(e)} >
+                    <option value = "All">todo</option>
+                    {allActivities?.map((e,i) => (
+                        <option key={i} value = {e.name}>{e.name}</option>
+                    ))}
+                    {/* <option value="All"> All Activities</option>
                     <option value="Go to the Beach"> Go to the Beach </option>
                     <option value="Ski"> Ski </option>
-                    <option value="Visit Museums"> Visit Museums </option>
+                    <option value="Visit Museums"> Visit Museums </option> */}
                 </select>
                 <select onChange = {e => handleOrderPopulation(e)} > 
                     <option value="mayorP"> Order by Higher Population </option>
@@ -99,6 +130,7 @@ const paginado = (pageNum) => {
             id = {country.id}
             flagsImg = {country.flagsImg}
             continent = {country.continent}
+            activities={country.activities}
             />
         );
          }

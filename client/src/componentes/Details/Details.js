@@ -1,6 +1,31 @@
-// import React from "react";
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { getDetail } from "../../actions"
 
-// function ContactDetail({ name , flagsImg, continent, capital, subregión, area, population }) {
+export default function Details (props) {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getDetail(props.match.params.id))
+    },[dispatch])
+
+    const myCountry = useSelector( state = state.detail)
+
+    // return(
+    // //     <div>
+    // //         {
+    // //             myCountry.length > 0 ?
+    // //             <div>
+
+    // //             </div>
+    // //         }
+    // //     </div>
+    // // )
+}
+
+// function ContactDetail({ name , flagsImg, continent, capital, subregión, area, population, activity }) {
 //     return (
 //         <div>
 //              <img src = {flagsImg} alt="img not found" />

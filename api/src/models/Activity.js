@@ -2,15 +2,15 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('activity', {
-    name : {
+    name: {
       type : DataTypes.STRING,
       allowNull : false
     },
-    severity : {
+    severity: {
       type : DataTypes.DECIMAL,
       allowNull : false
     },
-    duration : {
+    duration: {
       type : DataTypes.DECIMAL,
       allowNull : false
     },
