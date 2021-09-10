@@ -57,15 +57,15 @@ function rootReducer (state = initialState, { type, payload }) {
                  )
                  return y !== undefined
                 })
-            //  console.log(prueba)
-            // const activityFilter = action.payload === "All" ? prueba : prueba.filter(e => e.name === action.payload)
-            // const final = activityFilter.map(e => 
-            //     e.countries)
-            // console.log(activityFilter)
             return {
                 ...state,
                 countries : prueba
             };
+                    //  console.log(prueba)
+            // const activityFilter = action.payload === "All" ? prueba : prueba.filter(e => e.name === action.payload)
+            // const final = activityFilter.map(e => 
+            //     e.countries)
+            // console.log(activityFilter)
         case   ORDER_AFABETICAMENTE :
             const ordSorted = payload === "alf" ?
                 state.countries.sort(function (a, b) {

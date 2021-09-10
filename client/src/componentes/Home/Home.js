@@ -17,7 +17,7 @@ import { getCountries,
 export function Home() {
   
     const allCountries = useSelector ((state) => state.countries) //es lo mismo que un mapStateToProps, me trae todo lo que esta en el stado de countries
-    const allActivities = useSelector ((state) => state.activities)
+    const allActivities = useSelector ((state) => state.allActivities)
     const [currentPage, setCurrentPage] = useState(1); //currentPage = pagina actual
     const [order, setOrder] = useState("");
     const [activity, setActivity] = useState(null);
@@ -74,6 +74,8 @@ const paginado = (pageNum) => {
 
 
     return(
+        <>
+        {allActivities &&  allActivities.length > 0 ?
         <div className = {style.total}>
             < Nav />
             <br/>
@@ -95,7 +97,8 @@ const paginado = (pageNum) => {
                 </select>
                 <select  onChange = {(e) => handleFilterActivity(e)}>
                     <option value = "All"> All Activities </option>
-                    {allActivities.length > 1 && allActivities.map((e) => (
+                   {console.log(allActivities)}
+                    {allActivities.length > 0 && allActivities.map((e) => (
                         <option key={e.id} value = {e.name}>{e.name}</option>
                     ))}
                 </select>
@@ -130,9 +133,10 @@ const paginado = (pageNum) => {
         />
        
         </div>
-       
+        :null}
+          </>
          )
-    
+  
 };
 
 export default Home;

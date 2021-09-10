@@ -2,9 +2,8 @@
   height: auto; 
   /* background-image: url("../../img/carteles-paises.jpg");
   background-repeat:repeat-y; */
-  background-color: #DEBA9D;
-  
-}
+  background-image: url("../../img/fondo\ 2.jpg");
+  }
 
 .container {
     display: flex;

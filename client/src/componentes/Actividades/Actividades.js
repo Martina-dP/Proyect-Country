@@ -29,9 +29,9 @@ const [input, setInput] = useState({
 function validate(input) {
     const errors = {};
     if (!input.name) {
-        errors.name = "Se requiere una Actividad";
+        errors.name = "Activity is required";
     } if (!input.season){
-        errors.season = "Se requiere un season"
+        errors.season = "Season is required"
     }
     return errors;
 }
@@ -64,7 +64,7 @@ function handleDelete(el) {
 function handleSubmit(e){
     e.preventDefault()
     dispatch(postActivities(input))
-    alert("Activitie Created")
+    setTimeout(()=>alert("Activitie Created"),1000)
     setInput({
         name : "",
         difficulty : "",
@@ -72,7 +72,7 @@ function handleSubmit(e){
         season : "",
         country : []
     })
-    history.push("/home")
+    return setTimeout(()=>history.push("/home"),3000)
 }
 
 return (
