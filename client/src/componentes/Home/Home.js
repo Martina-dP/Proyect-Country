@@ -32,10 +32,6 @@ const paginado = (pageNum) => {
 
     const dispatch = useDispatch()
 
-    useEffect(() =>{  
-        dispatch(getCountries());
-    },[dispatch]) 
-
     useEffect(() =>{  //nos traemos los paises del estado al montarlo 
         dispatch(getCountries());
         dispatch(getActivity()) //equivale a hacer mapDispatchToProps
@@ -46,24 +42,19 @@ const paginado = (pageNum) => {
     //     dispatch(getActivity(activity));
     // }, [activity, dispatch])
 
-    // function handleActivity(e){
-    //     e.preventDefault();
-    //     let activity = e.target.value;
-    //     setActivity(activity)
-    // }
-
     function handleFilterContinent(e) {
         dispatch(filterContinente(e.target.value))
     }
 
     function handleFilterActivity(e) {
+        // dispatch(filterActividad(e.target.value))
         if (e.target.value === "All"){
             dispatch(getCountries());
-            setCurrentPage(1); 
+            setCurrentPage(1);
         } else {
-            dispatch(filterActividad(e.target.value));
             setActivity(e.target.value);
-            setCurrentPage(1)
+            dispatch(filterActividad(e.target.value));
+           setCurrentPage(1)
         }
     }
 
@@ -102,15 +93,11 @@ const paginado = (pageNum) => {
                     <option value="Africa"> Africa </option>
                     <option value="Polar"> Polar </option>
                 </select>
-                <select onChange = {(e) => handleFilterActivity(e)} >
-                    <option value = "All">todo</option>
-                    {allActivities?.map((e,i) => (
-                        <option key={i} value = {e.name}>{e.name}</option>
+                <select  onChange = {(e) => handleFilterActivity(e)}>
+                    <option value = "All"> All Activities </option>
+                    {allActivities.length > 1 && allActivities.map((e) => (
+                        <option key={e.id} value = {e.name}>{e.name}</option>
                     ))}
-                    {/* <option value="All"> All Activities</option>
-                    <option value="Go to the Beach"> Go to the Beach </option>
-                    <option value="Ski"> Ski </option>
-                    <option value="Visit Museums"> Visit Museums </option> */}
                 </select>
                 <select onChange = {e => handleOrderPopulation(e)} > 
                     <option value="mayorP"> Order by Higher Population </option>
@@ -124,7 +111,7 @@ const paginado = (pageNum) => {
             <ul className = {style.container}>
             {currentCountries?.map((country) => {
          return (
-            <CardPais
+            <CardPais 
             key = {country.id}
             name = {country.name}
             id = {country.id}

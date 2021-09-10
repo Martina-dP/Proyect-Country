@@ -1,11 +1,24 @@
 .total {
-  background-image: url("../../img/carteles-paises.jpg");
-  background-repeat: no-repeat;
-  background-color: #F6D167;
+  height: auto; 
+  /* background-image: url("../../img/carteles-paises.jpg");
+  background-repeat:repeat-y; */
+  background-color: #DEBA9D;
+  
 }
 
 .container {
     display: flex;
     flex-flow: wrap;
     justify-content: space-around;
+    column-count: 2;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    /* align-items: center; */
+    /* width: 280px;
+    height: 330px;
+    border: 3px solid black;
+    padding:0px;
+    margin: 100px;
+    text-decoration: none; */
   }

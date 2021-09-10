@@ -10,25 +10,26 @@ router.get("/", async (_req, res) => {
 
 router.post('/', async function(req, res) {
     const {
-        id,
+        country,
         name,
-        severity,
+        difficulty,
         duration,
         season } = req.body;
 
     const activityCreated = await Activity.create({
         name,
-        severity,
+        difficulty,
         duration,
         season });
 
-    try { 
-        const countries = await Country.findAll({
-            where : {
-                id : id
-            }
-        })
-        await activityCreated.addCountries(countries);
+    try {
+    // { 
+    //     const countries = await Country.findAll({
+    //         where : {
+    //             id : id
+    //         }
+    //     })
+        await activityCreated.addCountries(country);
         res.send("Actividad creada")
     } catch (err) {
         res.send("Error")

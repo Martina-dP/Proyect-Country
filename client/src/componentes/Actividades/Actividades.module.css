@@ -1,0 +1,71 @@
+.total{
+
+    background-image: url("../../img/pexels-s-migaj-1464143.jpg");
+    background-size: cover;
+    width: 100%;
+
+}
+
+.cointener{
+    margin-left: 30px;
+    border: 1px solid #165480;
+    width: 480px;
+    margin-top: -10px;
+    background-color: rgba(255, 255, 255, 0.397); 
+}
+
+.bo{
+    color: tomato;
+    margin: 45px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.a{
+    color: tomato;
+    margin: 45px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.di{
+    color: tomato;
+    margin: 45px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.d{
+    color: tomato;
+    margin: 45px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.s{
+    color: tomato;
+    margin: 45px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.p{
+    color: tomato;
+    margin: 45px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.c{
+    color: tomato;
+    margin: 16px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-left: 200px;
+}
+
+.b{
+    color: tomato;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}

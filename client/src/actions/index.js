@@ -18,7 +18,6 @@ export function getCountries () {
             type : "GET_COUNTRIES",
             payload : json.data
         })
-
     }
 }
 
@@ -29,18 +28,17 @@ export function getActivity () {
             type : "GET_ACTIVITY",
             payload : json.data
         })
-
     }
 }
 
-export function postActivities (input) {
+export function postActivities(input) {
     return async function(dispatch){
         var json = await axios.post("http://localhost:3001/activity", input)
+        console.log(json)
         return dispatch({
             type : "POST_ACTIVITY",
             payload : json.data
         })
-
     }
 }
 
@@ -57,6 +55,7 @@ export function getCountriesByQuery(query) {
 export function getDetail(id) {
     return async function (dispatch) {
         var json = await axios.get(`http://localhost:3001/countries/${id}`)
+        console.log(json)
           return dispatch({
             type : "GET_COUNTRIES_BY_Id",
             payload : json.data

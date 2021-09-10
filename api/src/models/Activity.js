@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
       type : DataTypes.STRING,
       allowNull : false
     },
-    severity: {
+    difficulty: {
       type : DataTypes.DECIMAL,
       allowNull : false
     },

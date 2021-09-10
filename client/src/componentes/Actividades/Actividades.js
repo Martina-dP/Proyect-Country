@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { postActivities, getCountries } from "../../actions"
 import Nav from "../Nav/Nav";
+import style from "./Actividades.module.css"
 
 function ActivitiesCreated(){
     const dispatch = useDispatch();
     const history = useHistory();
     const activities = useSelector((state) => state.activities)
     const countries = useSelector((state) => state.countries)
-    const [error, setError] = useState({});
+    const [errors, setError] = useState({});
 
 useEffect(() => {
     dispatch(getCountries()); 
@@ -19,19 +20,20 @@ useEffect(() => {
 
 const [input, setInput] = useState({
     name : "",
-    severity : "",
+    difficulty : "",
     duration : "",
     season : "" ,
+    country : [],
 })
 
 function validate(input) {
-    let errores = {};
+    const errors = {};
     if (!input.name) {
-        errores.name = "Se requiere un Nombre valido";
-    } else if (!input.season){
-        errores.season = "Se requiere un season"
+        errors.name = "Se requiere una Actividad";
+    } if (!input.season){
+        errors.season = "Se requiere un season"
     }
-    return errores;
+    return errors;
 }
 
 function handleChange(e){
@@ -45,51 +47,64 @@ function handleChange(e){
     }))
 }
 
-function hanldeSelect(e) {
+function handelSelect(e) {
     setInput({
         ...input,
-        type : [input.season, e.target.value]
+        country : [...input.country, e.target.value],
     })
 }
 
-function hanleSubmit(e){
+function handleDelete(el) {
+    setInput({
+        ...input,
+        country : input.country.filter(c => c !== el)
+    })
+}
+
+function handleSubmit(e){
     e.preventDefault()
     dispatch(postActivities(input))
     alert("Activitie Created")
     setInput({
         name : "",
-        severity : "",
+        difficulty : "",
         duration : "",
         season : "",
+        country : []
     })
     history.push("/home")
 }
 
 return (
-    <div>
+    <div className = {style.total}>
         <Nav/>
         <Link to = "/home">
-            <button> Back to Home </button>
+            <button className = {style.bo}> Back to Home </button>
         </Link>
-        <form onSubmit = {e => hanleSubmit(e)} >
-            <div>
+        <form className = {style.cointener} onSubmit = {e => handleSubmit(e)} >
+            <div className = {style.a}>
                 <label> Activity : </label>
-                <input onChange = {e => handleChange(e) }
+                <input 
                 type = "text"
                 value = {input.name}
                 name = "name"
+                onChange = {e => handleChange(e) }
                 />
+                    {errors.name && (
+                        <p> {errors.name} </p>
+                    )}
             </div>
-            <div>
-                <label> Severity : </label>
-                <input onChange = {e => handleChange(e) }
-                type = "text"
-                placeholder="1 a 5"
-                value = {input.severity}
-                name = "severity"
-                />
+            <div className = {style.di} >
+                <label> Difficulty : </label>
+                <select name = "difficulty" onChange = {e => handleChange(e)} >
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+            </select>
             </div>
-            <div>
+            <div className = {style.d} >
                 <label> Duration : </label>
                 <input onChange = {e => handleChange(e) }
                 type = "text"
@@ -98,27 +113,41 @@ return (
                 name = "duration"
                 />
             </div>
-            <div>
+            <div className = {style.s}>
             <label> Season : </label>
-            <select onChange = {e => handleChange(e)} >
-                <option value="invierno"> winter </option>
-                <option value="verano"> summer </option>
-                <option value="otoño"> spring </option>
-                <option value="primavera"> autumn </option>
+            <select name = "season" onChange = {e => handleChange(e)} >
+                <option value="winter"> winter </option>
+                <option value="summer"> summer </option>
+                <option value="spring"> spring </option>
+                <option value="autumn"> autumn </option>
             </select>
+                {errors.season && (
+                        <p> {errors.season} </p>
+                    )}
+            </div>
+            <div className = {style.p} >
+            <label> Country : </label>
+                <select onChange = {e => handelSelect(e) } >
+                {countries.map(c => (
+                    <option value = {c.id} > {c.name} </option>
+                ))}
+                </select> 
             </div>
             <div>
-            <label> Country : </label>
-            <select onChange = {e => hanldeSelect(e) } >
-                {countries.map(c => (
-                    <option value = {c.name} > {c.name} </option>
-                ))}
-            </select>
+        {input.country.map((el) =>
+            <div className = {style.b} >
+                <p>{el}</p>
+                <button onClick = {() => handleDelete(el)}> x </button>
             </div>
-            <button type = "submit"> Create </button>
+            )}
+        </div>
+            <button className = {style.c} type = "submit"> Create </button>
         </form>
+       
     </div>
 )
 };
 
 export default ActivitiesCreated;
+
+

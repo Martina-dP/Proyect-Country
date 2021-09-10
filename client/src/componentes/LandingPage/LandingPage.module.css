@@ -1,9 +1,19 @@
+  
 .principal{
-    height: 100vh; 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    background-image: url("../../img/7.jpg");
-    background-size: cover; 
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+}
+
+.t, p{
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-style: italic;
+    font-variant: small-caps;
+    text-decoration: underline solid rgb(68, 68, 68);
+}
+
+.p{
+    font-size: 20px;
 }
