@@ -1,4 +1,4 @@
-/* import React from 'react'; */
+import React from 'react'; 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardPais from '../CardPais/CardPais';
@@ -74,19 +74,15 @@ const paginado = (pageNum) => {
 
 
     return(
-        <>
-        {allActivities &&  allActivities.length > 0 ?
         <div className = {style.total}>
             < Nav />
             <br/>
-            < Search />
-            <br />
-            <div>
+            < Search className = {style.search} />
+            <div className = {style.creacrActividad}>
                 <Link to="/activity"> Create Activity</Link>
             </div>
-            <br/>
-            <div>
-                <select onChange = {e => handleFilterContinent(e)} >
+            <div className = {style.totalFiltros}>
+                <select className = {style.continente} onChange = {e => handleFilterContinent(e)} >
                     <option value="All"> All Countries </option>
                     <option value="Europe"> Europe </option>
                     <option value="Americas"> Americas </option>
@@ -95,18 +91,18 @@ const paginado = (pageNum) => {
                     <option value="Africa"> Africa </option>
                     <option value="Polar"> Polar </option>
                 </select>
-                <select  onChange = {(e) => handleFilterActivity(e)}>
+                <select className = {style.actividades} onChange = {(e) => handleFilterActivity(e)}>
                     <option value = "All"> All Activities </option>
                    {console.log(allActivities)}
                     {allActivities.length > 0 && allActivities.map((e) => (
                         <option key={e.id} value = {e.name}>{e.name}</option>
                     ))}
                 </select>
-                <select onChange = {e => handleOrderPopulation(e)} > 
+                <select className = {style.poblacion} onChange = {e => handleOrderPopulation(e)} > 
                     <option value="mayorP"> Order by Higher Population </option>
                     <option value="menorP"> Order by Smaller Population </option>
                 </select>
-                <select onChange = {e => handleOrderAlf(e)} >
+                <select className = {style.letras} onChange = {e => handleOrderAlf(e)} >
                     <option value="alf"> Order by A - Z</option>
                     <option value="notAlf"> Order by Z - A</option>
                 </select>
@@ -131,10 +127,7 @@ const paginado = (pageNum) => {
         allCountries = {allCountries.length}
         paginado = {paginado}
         />
-       
         </div>
-        :null}
-          </>
          )
   
 };

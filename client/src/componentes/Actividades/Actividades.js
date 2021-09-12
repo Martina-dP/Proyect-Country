@@ -64,7 +64,7 @@ function handleDelete(el) {
 function handleSubmit(e){
     e.preventDefault()
     dispatch(postActivities(input))
-    setTimeout(()=>alert("Activitie Created"),1000)
+    alert("Activitie Created")
     setInput({
         name : "",
         difficulty : "",
@@ -133,17 +133,17 @@ return (
                 ))}
                 </select> 
             </div>
-            <div>
+          
+            <button className = {style.c} type = "submit"> Create </button>
+        </form>
+        <div>
         {input.country.map((el) =>
             <div className = {style.b} >
                 <p>{el}</p>
-                <button onClick = {() => handleDelete(el)}> x </button>
+                <button className = {style.boton} onClick = {() => handleDelete(el)}> x </button>
             </div>
             )}
         </div>
-            <button className = {style.c} type = "submit"> Create </button>
-        </form>
-       
     </div>
 )
 };

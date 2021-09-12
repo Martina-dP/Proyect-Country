@@ -9,15 +9,54 @@
     display: flex;
     flex-flow: wrap;
     justify-content: space-around;
-    column-count: 2;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
-    /* align-items: center; */
-    /* width: 280px;
-    height: 330px;
-    border: 3px solid black;
-    padding:0px;
-    margin: 100px;
-    text-decoration: none; */
-  }
+}
+
+.totalFiltros{
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid white; */
+  margin-left: 330px;
+  width: 700px;
+  margin-top: 20px;
+  margin-bottom: -40px;
+}
+
+.creacrActividad{
+  margin-top: 20px;
+}
+
+.continente{
+    background-color:#000;
+    border: 2px solid teal;
+	  color:#fff;
+		text-decoration:none;
+		padding: 6px 8px;
+		display:block;
+}
+
+.actividades{
+  background-color:#000;
+  border: 2px solid teal;
+  color:#fff;
+  text-decoration:none;
+  padding: 6px 8px;
+  display:block;
+}
+
+.poblacion{
+  background-color:#8e8b8281;
+  border: 2px solid teal;
+  color:#fff;
+  text-decoration:none;
+  padding: 6px 8px;
+  display:block;
+}
+
+.letras{
+  background-color:#6f4c5bde;
+  border: 2px solid white;
+  color:#fff;
+  text-decoration:none;
+  padding: 6px 8px;
+  display:block;
+}

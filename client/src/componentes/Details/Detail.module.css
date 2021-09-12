@@ -1,13 +1,27 @@
-.todo{
-    color: teal;
-   
+
+.fondo{
+    background-image: url("../../img/fondo\ 2.jpg");
+    background-size: cover;
+    height: 624px
 }
 
 .img{
     width: 380px; 
     height: 220px;
-    margin-left: 200px;
- 
+    margin-left: 700px;
+    margin-top: 80px;
+}
+
+.ti{
+    color: #8E8B82;
+    text-align: center;
+    margin: 10px;
+}
+
+.hid{
+    text-align: left;
+    margin-top: -180px;
+    margin-left: 10px;
 }
 
 .data{
@@ -15,32 +29,66 @@
 }
 
 .ci{
-    color: teal;
-    margin-left: 30px;
-    border: 1px solid #165480;
+    color: #868278;
+    margin-left: 120px;
+    border: 2px solid #FEFBF3;
     width: 560px;
+    height: 208px;
+    margin-top: -140px;
+    font-family: bold;
+    font-size: 20px;
 }
 
 .ai{
-    color: teal;
-    margin-left: 420px;
-    border: 1px solid #165480;
+    color: #8E8B82;
+    margin-left: 460px;
+    border: 2px solid #FEFBF3;
     width: 300px;
     margin-top: -28px;
+    font-family: bold;
+    font-size: 18px;
 }
 
 .in{
-    color: teal;
+    color: #8E8B82;
     margin-left: 20px;
 }
 
-.h3{
-    color: teal;
-   
+.co{
+color: #8E8B82;
+margin-left: 10px;
 }
-/* 
+
+.ca{
+text-align: center;
+
+margin-bottom: 10px;
+}
+
+.su{
+text-align: right;
+}
+
+.ar{
+margin-left: 150px;
+margin-top: 10px;
+}
+
+.po{
+    margin-left: 10px;
+}
+
 .bh{
     color: teal;
-    margin-left: 80px;
-    margin-top: 200px;
-} */
+    margin-left: 36px;
+    margin-top: 70px;
+	--border-size: 2px;
+    box-shadow: inset 0 0 0 var(--border-size);
+	padding: 1.5em 3em;
+	border: 0;
+	background: transparent;
+	text-transform: uppercase;
+	letter-spacing: .25em;
+	cursor: pointer;
+	font-weight: bold;
+}
