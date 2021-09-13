@@ -1,7 +1,7 @@
 
 .fondo{
-    background-image: url("../../img/fondo\ 2.jpg");
-    background-size: cover;
+    /* background-image: url("../../img/pexels-pixabay-358238.jpg"); */
+    background-image: url("../../img/copia2.jpg");
     height: 624px
 }
 
@@ -13,7 +13,7 @@
 }
 
 .ti{
-    color: #8E8B82;
+    color: black;
     text-align: center;
     margin: 10px;
 }
@@ -29,7 +29,9 @@
 }
 
 .ci{
-    color: #868278;
+    color: black;
+    background-color: #8682789f;
+    /* color: #868278; */
     margin-left: 120px;
     border: 2px solid #FEFBF3;
     width: 560px;
@@ -40,7 +42,8 @@
 }
 
 .ai{
-    color: #8E8B82;
+    color: black;
+    background-color: #8682789f;
     margin-left: 460px;
     border: 2px solid #FEFBF3;
     width: 300px;
@@ -50,12 +53,13 @@
 }
 
 .in{
-    color: #8E8B82;
+    color: black;
     margin-left: 20px;
 }
 
 .co{
-color: #8E8B82;
+    color: black;
+/* color: #8E8B82; */
 margin-left: 10px;
 }
 
@@ -79,16 +83,14 @@ margin-top: 10px;
 }
 
 .bh{
-    color: teal;
+    color: white;
     margin-left: 36px;
     margin-top: 70px;
-	--border-size: 2px;
-    box-shadow: inset 0 0 0 var(--border-size);
-	padding: 1.5em 3em;
-	border: 0;
-	background: transparent;
-	text-transform: uppercase;
-	letter-spacing: .25em;
 	cursor: pointer;
 	font-weight: bold;
+    border: 3px solid teal;
+	letter-spacing: .25em; 
+    padding: 14px 18px;
+    text-transform: uppercase;
+    background-color:  #8682789f;
 }

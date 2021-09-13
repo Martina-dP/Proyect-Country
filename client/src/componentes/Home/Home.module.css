@@ -2,7 +2,11 @@
   height: auto; 
   /* background-image: url("../../img/carteles-paises.jpg");
   background-repeat:repeat-y; */
-  background-image: url("../../img/fondo\ 2.jpg");
+  /* background-image: url("../../img/fondo\ 2.jpg"); */
+  /* background-color: #e2c175e1; */
+  /* background-color: #F7F6F2; */
+  background-image: url("../../img/copia2.jpg");
+  background-attachment: fixed;
   }
 
 .container {
@@ -15,19 +19,26 @@
   display: flex;
   justify-content: space-between;
   /* border: 2px solid white; */
-  margin-left: 330px;
+  margin-left: 340px;
   width: 700px;
   margin-top: 20px;
   margin-bottom: -40px;
 }
 
 .creacrActividad{
-  margin-top: 20px;
+  text-align: center;
+  margin-top: -33px;
+  margin-left: 10px;
+  border: 3px solid white;
+  width: 130px;
+  padding: 6px 6px;
+  background-color:#9E7540;
+  cursor: pointer;
 }
 
 .continente{
-    background-color:#000;
-    border: 2px solid teal;
+    background-color:#9E7540;
+    border: 3px solid white;
 	  color:#fff;
 		text-decoration:none;
 		padding: 6px 8px;
@@ -35,8 +46,8 @@
 }
 
 .actividades{
-  background-color:#000;
-  border: 2px solid teal;
+  background-color:#9E7540;
+  border: 3px solid white;
   color:#fff;
   text-decoration:none;
   padding: 6px 8px;
@@ -44,8 +55,8 @@
 }
 
 .poblacion{
-  background-color:#8e8b8281;
-  border: 2px solid teal;
+  background-color:#9E7540;
+  border: 3px solid white;
   color:#fff;
   text-decoration:none;
   padding: 6px 8px;
@@ -53,10 +64,21 @@
 }
 
 .letras{
-  background-color:#6f4c5bde;
-  border: 2px solid white;
+  background-color:#9E7540;
+  border: 3px solid white;
   color:#fff;
   text-decoration:none;
   padding: 6px 8px;
   display:block;
+}
+
+.paginado{
+	padding: 10px 20px;
+	color:#fff;
+	background: #9E7540;
+  border: 2px solid white;
+  cursor: pointer;
+  width: 500px;
+  display: flexbox;
+  justify-content: center;
 }

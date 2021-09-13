@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCountriesByQuery } from "../../actions";
 import { useHistory } from "react-router";
+import style from "./search.module.css"
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -20,7 +21,7 @@ export default function Search() {
   };
 
   return (
-    <div>
+    <div className = {style.todo}>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
@@ -28,7 +29,7 @@ export default function Search() {
           value={query}
           onChange={handleChange}
         />
-        <button type="submit">
+        <button className = {style.boton} type="submit">
           Search
         </button>
       </form>

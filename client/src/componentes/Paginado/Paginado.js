@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./paginado.module.css"
 
 function Paginado ({countriesPerPage, allCountries, paginado}) { //declaro paginado
     const pageNum = []
@@ -7,7 +8,7 @@ function Paginado ({countriesPerPage, allCountries, paginado}) { //declaro pagin
     }
 
     return (
-        <nav>
+        <nav className = {style.paginado}>
             <ul>
                 {pageNum &&
                     pageNum.map(num => (

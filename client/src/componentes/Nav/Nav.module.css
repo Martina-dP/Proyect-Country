@@ -1,0 +1,11 @@
+.titulo{
+    color: white;
+    text-align: center;
+    display: block;
+    text-align: center;
+    /* background-color: #6f4c5bde; */
+    /* background-color: #C3BA85; */
+    background-color: #9E7540;
+    border: 2px solid white;
+    padding: 10px;
+}

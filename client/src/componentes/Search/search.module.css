@@ -1,0 +1,16 @@
+.todo{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.boton{
+    color: white;
+    cursor: pointer;
+	font-weight: bold;
+    border: 3px solid white;
+	letter-spacing: .10em; 
+    padding: 6px 6px;
+    text-transform: uppercase;
+    background-color:#9E7540;
+}

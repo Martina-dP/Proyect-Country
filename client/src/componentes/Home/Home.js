@@ -122,12 +122,15 @@ const paginado = (pageNum) => {
          }
         ) }
         </ul>
-        <Paginado
-        countriesPerPage = {countriesPerPage}
-        allCountries = {allCountries.length}
-        paginado = {paginado}
-        />
+        <div className = {style.paginado}>
+            <Paginado 
+                countriesPerPage = {countriesPerPage}
+                allCountries = {allCountries.length}
+                paginado = {paginado}
+            />
         </div>
+        </div>
+        
          )
   
 };
