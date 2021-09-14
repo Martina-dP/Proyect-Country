@@ -129,7 +129,7 @@ return (
             <label> Country : </label>
                 <select onChange = {e => handelSelect(e) } >
                 {countries.map(c => (
-                    <option value = {c.id} > {c.name} </option>
+                    <option key={c.id} value = {c.id} > {c.name} </option>
                 ))}
                 </select> 
             </div>

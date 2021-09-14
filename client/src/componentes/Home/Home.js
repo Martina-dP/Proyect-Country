@@ -35,19 +35,13 @@ const paginado = (pageNum) => {
     useEffect(() =>{  //nos traemos los paises del estado al montarlo 
         dispatch(getCountries());
         dispatch(getActivity()) //equivale a hacer mapDispatchToProps
-    },[dispatch]) //el array es para pasarle cuano queremos que suceda
-
-
-    // useEffect(()=>{
-    //     dispatch(getActivity(activity));
-    // }, [activity, dispatch])
+    },[dispatch]) //el array es para pasarle cuadno queremos que suceda
 
     function handleFilterContinent(e) {
         dispatch(filterContinente(e.target.value))
     }
 
     function handleFilterActivity(e) {
-        // dispatch(filterActividad(e.target.value))
         if (e.target.value === "All"){
             dispatch(getCountries());
             setCurrentPage(1);
@@ -71,7 +65,6 @@ const paginado = (pageNum) => {
         setCurrentPage(1);
         setOrder(`Ordenado ${e.target.value}`)
     }
-
 
     return(
         <div className = {style.total}>
