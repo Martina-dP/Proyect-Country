@@ -55,7 +55,6 @@ export function getCountriesByQuery(query) {
 export function getDetail(id) {
     return async function (dispatch) {
         var json = await axios.get(`http://localhost:3001/countries/${id}`)
-        console.log(json)
           return dispatch({
             type : "GET_COUNTRIES_BY_Id",
             payload : json.data
@@ -71,7 +70,6 @@ export function filterContinente(payload) {
 };
 
 export function orderPoblacion(payload) {
-    console.log(payload)
     return {
         type: "ORDER_POBLACION",
         payload
@@ -90,8 +88,4 @@ export function filterActividad(payload) {
         type: "FILTER_BY_ACTIVITY",
         payload
         } 
-};
-
-export function deleteActividad() {
-    
 };

@@ -8,11 +8,11 @@ function Paginado ({countriesPerPage, allCountries, paginado}) { //declaro pagin
     }
 
     return (
-        <nav className = {style.paginado}>
-            <ul>
+        <nav  className = {style.paginado}>
+            <ul  className = {style.p}> 
                 {pageNum &&
                     pageNum.map(num => (
-                        <a onClick = {() => paginado(num)}  key = {num} > {num} </a>
+                        <button className = {style.pag} onClick = {() => paginado(num)}  key = {num} > {num} </button>
                     ))
                 }
             </ul>

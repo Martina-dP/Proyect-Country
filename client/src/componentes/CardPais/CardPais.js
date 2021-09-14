@@ -9,9 +9,9 @@ function CardPais({id,name,continent,flagsImg}){
          <Link to={`/countries/${id}`} >
           <img className = {style.img} value="info" src = {flagsImg} alt="img not found" />
         </Link>
-            <h2>{name}</h2>
-            <h3>{continent}</h3>
+            <h2 className = {style.nom}>{name}</h2>
+            <h3 className = {style.con}>{continent}</h3>
         </div>
-    )} //ACA ESTUVO AGUSTIN ! jajaja ponete a laburar martuuuuuuu
+    )} 
 
 export default CardPais;

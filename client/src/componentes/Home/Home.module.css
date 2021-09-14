@@ -34,6 +34,12 @@
   padding: 6px 6px;
   background-color:#9E7540;
   cursor: pointer;
+  text-decoration: none;
+  color: aqua;
+}
+
+.creacrActividad:visited{
+  text-decoration: none
 }
 
 .continente{
@@ -73,12 +79,10 @@
 }
 
 .paginado{
-	padding: 10px 20px;
-	color:#fff;
-	background: #9E7540;
-  border: 2px solid white;
-  cursor: pointer;
-  width: 500px;
-  display: flexbox;
+
+  /* width: auto; */
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }

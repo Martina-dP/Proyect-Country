@@ -1,0 +1,28 @@
+.pag{
+    margin: 2px;
+    border: 2px solid brown;
+    width: 30px;
+    height: 26px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.pag:hover{
+    background-color: #9E7540;
+}
+
+.p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginado{
+    width: 840px;
+    padding: 6px 8px;
+	color:#fff;
+	background: #9E7540;
+    border: 2px solid white;
+}
+

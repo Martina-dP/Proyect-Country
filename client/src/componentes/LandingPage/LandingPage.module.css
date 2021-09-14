@@ -12,8 +12,22 @@
     font-style: italic;
     font-variant: small-caps;
     text-decoration: underline solid rgb(68, 68, 68);
+    margin: 20px;
 }
 
 .p{
     font-size: 20px;
+    border:2px ;
+    width: 500px;
+    text-align: center;
+}
+
+.g{
+    cursor: pointer;
+	font-weight: bold;
+    border: 2px solid teal;
+    padding: 4px 6px;
+    text-transform: uppercase;
+    background-color:  #8682789f;
+    margin-left: 220px;
 }

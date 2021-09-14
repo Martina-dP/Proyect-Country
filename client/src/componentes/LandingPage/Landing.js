@@ -7,7 +7,7 @@ function landingPage () {
     return (
         <div>
             <div className = {style.principal}>
-                <h1 className = {style.t}>Create your own adventure</h1>
+                <h1 className = {style.t}> Create your own adventure </h1>
                 <Link to = "/home">
                     <button className = {style.g} >Go!</button>
                 </Link>
@@ -22,8 +22,7 @@ function landingPage () {
                       height: "100%",
                       objectFit: "cover",
                       zIndex: "1"
-                  }}
-                >
+                  }}>
                   <source src = {video2} type = "video/mp4" />
                 </video>
             </div>

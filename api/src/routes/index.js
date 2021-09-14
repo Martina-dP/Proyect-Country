@@ -4,7 +4,6 @@ const { Router } = require('express');
 const countryRoute = require("./country")
 const activityRoute = require("./activity")
 const getRoute = require("./activity")
-const deleteActivityRoute = require("./deleteActivity")
 
 const router = Router();
 
@@ -13,6 +12,6 @@ const router = Router();
 router.use('/countries', countryRoute);
 router.use('/activities', getRoute);
 router.use('/activity', activityRoute);
-router.use('/activity', deleteActivityRoute);
+
 
 module.exports = router;

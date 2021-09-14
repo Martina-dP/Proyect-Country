@@ -8,12 +8,14 @@ import Details from './componentes/Details/Details';
 function App() {
   return (
     < BrowserRouter>
+    <div>
       <Switch>
         <Route exact path = "/" component = {landingPage} />
         <Route exact path = "/home" component = {Home} />
         <Route exact path="/activity" component={Actividades} />
         <Route exact path = "/countries/:id" component = {Details} />
       </Switch>
+      </div>
     </BrowserRouter>
   );
 }
