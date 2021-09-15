@@ -30,10 +30,9 @@ export default function Detail(props) {
                     <h5 className = {style.hid}> id : {myCountry.id}</h5>
                 </div> 
                 <div className = {style.ai}>
-                {/* {activities ? */}
                      {myCountry.activities?.map(act => (
                         <div className = {style.in}>
-                             <h3> Actividades: </h3>
+                             <h3> Activities : </h3>
                             <h4>Name : {act.name}</h4>
                             <div className = {style.data}>
                                 <h4>Difficulty : {act.difficulty}</h4>
@@ -42,8 +41,6 @@ export default function Detail(props) {
                             </div>
                         </div>
                     ))}
-                 
-                {/* // } : <h4>no hay Actividades</h4> */}
                 </div>
                 </div> 
             <Link to = "/home">

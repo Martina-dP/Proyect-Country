@@ -16,19 +16,14 @@ router.post('/', async function(req, res) {
         duration,
         season } = req.body;
 
-    const activityCreated = await Activity.create({
-        name,
-        difficulty,
-        duration,
-        season });
-
     try {
-    // { 
-    //     const countries = await Country.findAll({
-    //         where : {
-    //             id : id
-    //         }
-    //     })
+        const activityCreated = await Activity.create({
+            name,
+            difficulty,
+            duration,
+            season 
+        });
+        
         await activityCreated.addCountries(country);
         res.send("Actividad creada")
     } catch (err) {

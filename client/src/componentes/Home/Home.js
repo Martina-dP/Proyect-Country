@@ -86,9 +86,8 @@ const paginado = (pageNum) => {
                 </select>
                 <select className = {style.actividades} onChange = {(e) => handleFilterActivity(e)}>
                     <option value = "All"> All Activities </option>
-                   {console.log(allActivities)}
                     {allActivities.length > 0 && allActivities.map((e) => (
-                        <option key={e.id} value = {e.name}>{e.name}</option>
+                     <option key={e.id} value = {e.name}>{e.name}</option>
                     ))}
                 </select>
                 <select className = {style.poblacion} onChange = {e => handleOrderPopulation(e)} > 
