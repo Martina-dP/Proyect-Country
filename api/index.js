@@ -23,17 +23,16 @@ const axios = require("axios")
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async() => {
-  const getApiInfo = await axios.get("https://restcountries.eu/rest/v2/all");
+  const getApiInfo = await axios.get("https://restcountries.com/v3/all");
   let apiInfo = getApiInfo.data.map(e => { //la e son los elementos que yo necesito de la api
       return{
-          id : e.alpha3Code,
-          name : e.name,
-          flagsImg : e.flag,
+          id : e.cca3,
+          name : e.name.common,
+          flagsImg : e.flags?.pop(f => f),
           continent : e.region,
-          capital : e.capital,
+          capital : e.capital?.pop(c => c),
           subregión : e.subregion,
           area : e.area,
-          population : e.population,
       }
   })
   await Country.bulkCreate(apiInfo);

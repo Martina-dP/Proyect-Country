@@ -24,16 +24,12 @@ module.exports = (sequelize) => {
     },
     capital : {
       type : DataTypes.STRING,
-      allowNull : false
     },
     subregión : {
       type : DataTypes.STRING,
     },
     area : {
     type : DataTypes.DECIMAL,
-    },
-    population : {
-    type : DataTypes.INTEGER,
     },
   });
 };

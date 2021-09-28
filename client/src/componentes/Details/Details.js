@@ -25,7 +25,6 @@ export default function Detail(props) {
                     <h3 className = {style.co}> Continent : {myCountry.continent}</h3>
                     <h3 className = {style.ca}> Capital : {myCountry.capital}</h3>
                     <h3 className = {style.su}> Subregión : {myCountry.subregión}</h3>
-                    <h4 className = {style.po}> Population : {myCountry.population}</h4>
                     <h4 className = {style.ar}> Area : {myCountry.area}</h4>
                     <h5 className = {style.hid}> id : {myCountry.id}</h5>
                 </div> 

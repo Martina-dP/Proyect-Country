@@ -11,7 +11,7 @@ import { getCountries,
         filterContinente, 
         filterActividad,
         orderAlfabeticamente,
-        orderPoblacion,
+        orderArea,
         getActivity,  } from "../../actions/index"
 
 export function Home() {
@@ -41,6 +41,11 @@ const paginado = (pageNum) => {
         dispatch(filterContinente(e.target.value))
     }
 
+    function handleClick(e) {
+        e.preventDefault()
+        dispatch(getCountries())
+    }
+
     function handleFilterActivity(e) {
         if (e.target.value === "All"){
             dispatch(getCountries());
@@ -59,9 +64,9 @@ const paginado = (pageNum) => {
         setOrder(`Ordenado ${e.target.value}`)
     }
 
-    function handleOrderPopulation(e) {
+    function handleOrderArea(e) {
         e.preventDefault();
-        dispatch(orderPoblacion(e.target.value))
+        dispatch(orderArea(e.target.value))
         setCurrentPage(1);
         setOrder(`Ordenado ${e.target.value}`)
     }
@@ -75,14 +80,17 @@ const paginado = (pageNum) => {
                 <Link to="/activity"> Create Activity</Link>
             </div>
             <div className = {style.totalFiltros}>
+            <div>
+                <button className = {style.atc} onClick = {e => handleClick(e)}> All the Countries </button>
+            </div>
                 <select className = {style.continente} onChange = {e => handleFilterContinent(e)} >
-                    <option value="All"> All Countries </option>
+                    <option value="All"> All Continent </option>
                     <option value="Europe"> Europe </option>
                     <option value="Americas"> Americas </option>
                     <option value="Asia"> Asia </option>
                     <option value="Oceania"> Oceania </option>
                     <option value="Africa"> Africa </option>
-                    <option value="Polar"> Polar </option>
+                    <option value="Antarctic"> Antarctic </option>
                 </select>
                 <select className = {style.actividades} onChange = {(e) => handleFilterActivity(e)}>
                     <option value = "All"> All Activities </option>
@@ -90,9 +98,9 @@ const paginado = (pageNum) => {
                      <option key={e.id} value = {e.name}>{e.name}</option>
                     ))}
                 </select>
-                <select className = {style.poblacion} onChange = {e => handleOrderPopulation(e)} > 
-                    <option value="mayorP"> Order by Higher Population </option>
-                    <option value="menorP"> Order by Smaller Population </option>
+                <select className = {style.area} onChange = {e => handleOrderArea(e)} > 
+                    <option value="mayorA"> Order by Higher Area </option>
+                    <option value="menorA"> Order by Smaller Area </option>
                 </select>
                 <select className = {style.letras} onChange = {e => handleOrderAlf(e)} >
                     <option value="alf"> Order by A - Z</option>

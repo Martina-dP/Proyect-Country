@@ -6,7 +6,7 @@ import {
     FILTER_BY_ACTIVITY,
     GET_ACTIVITY,
     ORDER_AFABETICAMENTE,
-    ORDER_POBLACION,
+    ORDER_AREA,
     POST_ACTIVITY,
     
 } from "../actions/index"
@@ -90,22 +90,22 @@ function rootReducer (state = initialState, { type, payload }) {
                 ...state,
                 countries : ordSorted
             }
-        case ORDER_POBLACION :
-            const orderSort = payload === "menorP" ?
+        case ORDER_AREA :
+            const orderSort = payload === "menorA" ?
                 state.countries.sort(function (a, b) {
-                    if (a.population > b.population){
+                    if (a.area > b.area){
                         return 1;
                     }
-                    if (a.population < b.population){
+                    if (a.area < b.area){
                         return -1;
                     }
                     return 0; 
                 }) : 
                 state.countries.sort(function (a, b) {
-                    if (b.population > a.population){
+                    if (b.area > a.area){
                         return 1;
                     }
-                    if (b.population < a.population){
+                    if (b.area < a.area){
                         return -1;
                     }
                     return 0; 
