@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Country, Activity } = require("../db")
+const axios = require('axios')
 
-router.get('/', async function( req, res) {
+router.get("/", async function( req, res) {
     const { name } = req.query;
     const countries = await Country.findAll({
         include: Activity

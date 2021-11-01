@@ -37,7 +37,7 @@ conn.sync({ force: true }).then(async() => {
   })
   await Country.bulkCreate(apiInfo);
   server.listen({ port: process.env.PORT || 3001 }, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at 3000'); // eslint-disable-line no-console
   });
 });
 
